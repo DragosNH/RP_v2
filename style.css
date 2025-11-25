@@ -4,3 +4,13 @@
     /* https://piktochart.com/tips/fantasy-color-palette
     color palette nr.10 */
 }
+
+body{
+    background-color: var(--bk-blue);
+    color: var(--txt-color);
+    min-height: 90vh;
+}
+
+.container{
+    display: grid;
+}
