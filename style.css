@@ -1,16 +1,28 @@
-:root{
+:root {
     --bk-blue: #a3d1e0;
     --txt-color: #1A3E7E;
     /* https://piktochart.com/tips/fantasy-color-palette
     color palette nr.10 */
 }
 
-body{
+body {
     background-color: var(--bk-blue);
     color: var(--txt-color);
     min-height: 90vh;
 }
 
-.container{
+.container {
     display: grid;
+}
+
+.areas {
+    grid-area: 1 / col4-start / last-line / 6;
+
+}
+
+.characters {
+    grid-column-start: 1;
+    grid-column-end: span col4-start;
+    grid-row-start: 2;
+    grid-row-end: span 2;
 }
