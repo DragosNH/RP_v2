@@ -15,6 +15,7 @@ body {
     color: var(--txt-color);
     min-height: 90vh;
     padding: 0;
+    font-family: "Eagle Lake", serif;
 }
 
 /* ------ Grid style ------ */
@@ -69,6 +70,7 @@ body {
     background-color: var(--bk-blue);
     color: var(--txt-color);
     padding: 5px;
+    font-family: "Roboto", sans-serif;
 }
 
 .btn:active {
