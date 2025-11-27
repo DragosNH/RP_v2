@@ -12,4 +12,4 @@ You download the zip file from GitHub and you unzip it inside the desired folder
 The reason is to further improve my programming skills doing a project that I like.
 
 ## Color palette?
-I got the colors from [here](https://piktochart.com/tips/fantasy-color-palette). It's the 10th exemple.
+I got the colors from [here](https://piktochart.com/tips/fantasy-color-palette). It's the 10th example.
