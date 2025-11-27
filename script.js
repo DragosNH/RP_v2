@@ -27,6 +27,8 @@ addCharacter.onclick = function () {
         `
         playableCharacters.insertAdjacentHTML("beforeend", characterCard)
         currentPlayers++;
+    }else{
+        addCharacter.classList.add("active");
     }
 }
 
@@ -35,5 +37,7 @@ playableCharacters.addEventListener("click", function (e) {
     if (e.target.classList.contains("removeBtn")) {
         e.target.closest(".newPlayer").remove();
         currentPlayers--;
+        addCharacter.classList.remove("active");
+
     }
 });

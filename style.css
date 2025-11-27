@@ -88,3 +88,9 @@ body {
 .removeBtn:active {
     background-color: var(--active-remove);
 }
+
+.active {
+    background-color: var(--active-bk);
+    border: 3px solid var(--active-txt);
+    color: var(--active-txt);
+}
