@@ -12,6 +12,7 @@ body {
     padding: 0;
 }
 
+/* ------ Grid style ------ */
 .container {
   display: grid;
   grid-template-areas:
@@ -34,11 +35,24 @@ body {
 }
 .container div.characters {
   grid-area: characters;
+  min-height: 70vh;
 }
 .container div.areas {
   grid-area: areas;
+  min-height: 70vh;
 }
 .container div.footer {
   grid-area: footer;
   text-align: center;  
+}
+
+/* ------ Buttons ------ */
+
+.btn{
+    font-size: 18px;
+    border: 3px solid var(--txt-color);
+    border-radius: 10px;
+    background-color: var(--bk-blue);
+    color: var(--txt-color);
+    padding: 5px;
 }
