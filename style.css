@@ -9,20 +9,36 @@ body {
     background-color: var(--bk-blue);
     color: var(--txt-color);
     min-height: 90vh;
+    padding: 0;
 }
 
 .container {
-    display: grid;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "characters areas"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 3px;
+  background-color: var(--txt-color);
+  padding: 5px;
+  margin: 0;
 }
-
-.areas {
-    grid-area: 1 / col4-start / last-line / 6;
-
+.container div {
+  background-color: var(--bk-blue);
+  padding: 10px;
 }
-
-.characters {
-    grid-column-start: 1;
-    grid-column-end: span col4-start;
-    grid-row-start: 2;
-    grid-row-end: span 2;
+.container div.header {
+  grid-area: header;
+  text-align: center;
+}
+.container div.characters {
+  grid-area: characters;
+}
+.container div.areas {
+  grid-area: areas;
+}
+.container div.footer {
+  grid-area: footer;
+  text-align: center;  
 }
