@@ -3,6 +3,9 @@
     --txt-color: #1A3E7E;
     --active-bk: #add8e6;
     --active-txt: #483d8b;
+    --remove-color: #f82650;
+    --active-remove: #dc143c;
+    --white-txt: #ffeeff;
     /* https://piktochart.com/tips/fantasy-color-palette
     color palette nr.10 */
 }
@@ -16,45 +19,50 @@ body {
 
 /* ------ Grid style ------ */
 .container {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "characters areas"
-    "footer footer";
-  grid-template-columns: 1fr 3fr;
-  gap: 3px;
-  background-color: var(--txt-color);
-  padding: 5px;
-  margin: 0;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "characters areas"
+        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    gap: 3px;
+    background-color: var(--txt-color);
+    padding: 5px;
+    margin: 0;
 }
+
 .container div {
-  background-color: var(--bk-blue);
-  padding: 10px;
+    background-color: var(--bk-blue);
+    padding: 10px;
 }
+
 .container div.header {
-  grid-area: header;
-  text-align: center;
+    grid-area: header;
+    text-align: center;
 }
+
 .container div.characters {
-  grid-area: characters;
-  min-height: 70vh;
+    grid-area: characters;
+    min-height: 70vh;
 }
+
 .container div.areas {
-  grid-area: areas;
-  min-height: 70vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: start;
+    grid-area: areas;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
 }
+
 .container div.footer {
-  grid-area: footer;
-  text-align: center;  
+    grid-area: footer;
+    text-align: center;
 }
 
 /* ------ Buttons ------ */
 
-.btn{
+.btn {
     font-size: 18px;
     border: 3px solid var(--txt-color);
     border-radius: 10px;
@@ -63,8 +71,20 @@ body {
     padding: 5px;
 }
 
-.btn:active{
+.btn:active {
     background-color: var(--active-bk);
-    border:3px solid var(--active-txt);
+    border: 3px solid var(--active-txt);
     color: var(--active-txt);
+}
+
+.removeBtn {
+    background-color: var(--remove-color);
+    color: var(--white-txt);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+
+.removeBtn:active {
+    background-color: var(--active-remove);
 }
