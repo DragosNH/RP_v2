@@ -6,3 +6,10 @@ You open your command prompt and use the command `git clone https://github.com/D
 
 ### Solution 2
 You download the zip file from GitHub and you unzip it inside the desired folder and the you open `index.html` inside a browser.
+
+
+## The purpose of this project?
+The reason is to further improve my programming skills doing a project that I like.
+
+## Color palette?
+I got the colors from [here](https://piktochart.com/tips/fantasy-color-palette). It's the 10th exemple.
