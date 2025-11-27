@@ -13,3 +13,8 @@ The reason is to further improve my programming skills doing a project that I li
 
 ## Color palette?
 I got the colors from [here](https://piktochart.com/tips/fantasy-color-palette). It's the 10th example.
+
+## Other ressurces?
+- w3schools for the [grid](https://www.w3schools.com/css/css_grid.asp).
+- Main font [Eagle Lake](https://fonts.google.com/specimen/Eagle+Lake).
+- Secondary font [Roboto](https://fonts.google.com/specimen/Roboto).
