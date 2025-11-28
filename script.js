@@ -59,7 +59,13 @@ const characterCreation = () => {
         removeBtn.classList.add("removeBtn");
         removeBtn.innerText = "Close";
 
-        
+        removeBtn.addEventListener("click", () => {
+            newPlayer.remove();
+            currentPlayers--;
+            if(currentPlayers < 6){
+                addCharacter.classList.remove("active");
+            }
+        })
 
         newPlayer.appendChild(nameInput);
         newPlayer.appendChild(playerHp);
@@ -75,7 +81,7 @@ const characterCreation = () => {
     } else {
         addCharacter.classList.add("active");
     }
-    console.log("number of players: " + currentPlayers)
+    console.log("number of players: " + currentPlayers);
 
 }
 
