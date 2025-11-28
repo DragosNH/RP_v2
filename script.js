@@ -16,21 +16,37 @@ let hpVal = 100;
 let manaVal = 100;
 
 // Add players to the board
-addCharacter.onclick = function () {
+const characterCreation = () => {
     if (currentPlayers < maxPlayers) {
-        let characterCard = `<div class="newPlayer">
-            <input type="text" class="charName">
-            <p class="hp">HP:<span class="hpValue">${hpVal}</span></p>
-            <p class="mp">MP:<span class="mpValue">${manaVal}</span></p>
-            <button class="removePlayer removeBtn">×</button>
-        </div>
-        `
-        playableCharacters.insertAdjacentHTML("beforeend", characterCard)
+        // let characterCard = `<div class="newPlayer">
+        //     <input type="text" name="charName" class="charName">
+        //     <p class="hp">HP:<span class="hpValue">${hpVal}</span></p>
+        //     <p class="mp">MP:<span class="mpValue">${manaVal}</span></p>
+        //     <button class="removePlayer removeBtn">×</button>
+        // </div>
+        // `
+        // playableCharacters.insertAdjacentHTML("beforeend", characterCard)
+        // currentPlayers++;
+
+        let newPlayer = document.createElement("div");
+        newPlayer.classList.add("newPlayer");
+
+        let nameInput = document.createElement("input");
+        nameInput.classList.add("charName");
+        nameInput.setAttribute("type", "text");
+
+        newPlayer.appendChild(nameInput);
+
+        playableCharacters.appendChild(newPlayer)
+
         currentPlayers++;
-    }else{
+
+    } else {
         addCharacter.classList.add("active");
     }
+    console.log("number of players: " + currentPlayers)
 }
+
 
 // Remove players from the board
 playableCharacters.addEventListener("click", function (e) {
@@ -38,6 +54,9 @@ playableCharacters.addEventListener("click", function (e) {
         e.target.closest(".newPlayer").remove();
         currentPlayers--;
         addCharacter.classList.remove("active");
-
+        
     }
 });
+addCharacter.addEventListener("click", characterCreation);
+
+console.log(currentPlayers)
