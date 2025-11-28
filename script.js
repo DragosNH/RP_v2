@@ -18,15 +18,6 @@ let manaVal = 100;
 // Add players to the board
 const characterCreation = () => {
     if (currentPlayers < maxPlayers) {
-        // let characterCard = `<div class="newPlayer">
-        //     <input type="text" name="charName" class="charName">
-        //     <p class="hp">HP:<span class="hpValue">${hpVal}</span></p>
-        //     <p class="mp">MP:<span class="mpValue">${manaVal}</span></p>
-        //     <button class="removePlayer removeBtn">×</button>
-        // </div>
-        // `
-        // playableCharacters.insertAdjacentHTML("beforeend", characterCard)
-        // currentPlayers++;
 
         // ------ Player div container ------
         let newPlayer = document.createElement("div");
