@@ -92,9 +92,8 @@ body {
 }
 
 .active {
-    background-color: var(--active-bk);
-    border: 3px solid var(--active-txt);
-    color: var(--active-txt);
+
+    display: none;
 }
 
 /* ------ Player cards ------ */

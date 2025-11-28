@@ -28,14 +28,36 @@ const characterCreation = () => {
         // playableCharacters.insertAdjacentHTML("beforeend", characterCard)
         // currentPlayers++;
 
+        // ------ Player div container ------
         let newPlayer = document.createElement("div");
         newPlayer.classList.add("newPlayer");
 
+        // ------ Name input ------
         let nameInput = document.createElement("input");
         nameInput.classList.add("charName");
         nameInput.setAttribute("type", "text");
 
+        // ------ Health Points and Mana Points ------
+        // --- Health points ---
+        let playerHp = document.createElement("p");
+        playerHp.classList.add("hp");
+        playerHp.innerText = "HP: "
+        let playerHpValue = document.createElement("strong");
+        playerHpValue.classList.add('hpValue');
+        playerHpValue.innerText = hpVal;
+        // --- Mana points ---
+        let playerMp = document.createElement("p");
+        playerMp.classList.add("mp");
+        playerMp.innerText = "MP: "
+        let playerMpValue = document.createElement("strong");
+        playerMpValue.classList.add("mpValue");
+        playerMpValue.innerText = manaVal;
+
         newPlayer.appendChild(nameInput);
+        newPlayer.appendChild(playerHp);
+        playerHp.appendChild(playerHpValue);
+        newPlayer.appendChild(playerMp);
+        playerMp.appendChild(playerMpValue);
 
         playableCharacters.appendChild(newPlayer)
 
@@ -45,18 +67,11 @@ const characterCreation = () => {
         addCharacter.classList.add("active");
     }
     console.log("number of players: " + currentPlayers)
+
 }
 
 
-// Remove players from the board
-playableCharacters.addEventListener("click", function (e) {
-    if (e.target.classList.contains("removeBtn")) {
-        e.target.closest(".newPlayer").remove();
-        currentPlayers--;
-        addCharacter.classList.remove("active");
-        
-    }
-});
+
 addCharacter.addEventListener("click", characterCreation);
 
 console.log(currentPlayers)
