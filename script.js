@@ -53,11 +53,20 @@ const characterCreation = () => {
         playerMpValue.classList.add("mpValue");
         playerMpValue.innerText = manaVal;
 
+        // ------ Remove Button ------
+        let removeBtn = document.createElement("button");
+        removeBtn.classList.add("removePlayer");
+        removeBtn.classList.add("removeBtn");
+        removeBtn.innerText = "Close";
+
+        
+
         newPlayer.appendChild(nameInput);
         newPlayer.appendChild(playerHp);
         playerHp.appendChild(playerHpValue);
         newPlayer.appendChild(playerMp);
         playerMp.appendChild(playerMpValue);
+        newPlayer.appendChild(removeBtn);
 
         playableCharacters.appendChild(newPlayer)
 
