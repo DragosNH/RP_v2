@@ -53,7 +53,7 @@ const characterCreation = () => {
         removeBtn.addEventListener("click", () => {
             newPlayer.remove();
             currentPlayers--;
-            if(currentPlayers < 6){
+            if(currentPlayers <= 6){
                 addCharacter.classList.remove("active");
             }
         })
