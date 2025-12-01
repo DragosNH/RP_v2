@@ -28,6 +28,16 @@ const characterCreation = () => {
         nameInput.classList.add("charName");
         nameInput.setAttribute("type", "text");
 
+        // ------ Name Input function ------
+
+        nameInput.addEventListener("keydown", e => {
+            if (e.key === 'Enter') {
+                let chosenName = document.createElement("h3");
+                chosenName.innerText = nameInput.value;
+                nameInput.replaceWith(chosenName)
+            }
+        });
+
         // ------ Health Points and Mana Points ------
         // --- Health points ---
         let playerHp = document.createElement("p");
@@ -50,10 +60,11 @@ const characterCreation = () => {
         removeBtn.classList.add("removeBtn");
         removeBtn.innerText = "Close";
 
+        // ------ Remove button function ------
         removeBtn.addEventListener("click", () => {
             newPlayer.remove();
             currentPlayers--;
-            if(currentPlayers <= 6){
+            if (currentPlayers <= 6) {
                 addCharacter.classList.remove("active");
             }
         })
