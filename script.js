@@ -27,7 +27,8 @@ const characterCreation = () => {
         let nameInput = document.createElement("input");
         nameInput.classList.add("charName");
         nameInput.setAttribute("type", "text");
-        nameInput.placeholder = "Character's name"
+        nameInput.placeholder = "Character's name";
+        nameInput.maxLength = 15;
 
         // ------ Name Input function ------
         nameInput.addEventListener("keydown", e => {
