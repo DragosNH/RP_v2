@@ -29,7 +29,6 @@ const characterCreation = () => {
         nameInput.setAttribute("type", "text");
 
         // ------ Name Input function ------
-
         nameInput.addEventListener("keydown", e => {
             if (e.key === 'Enter') {
                 let chosenName = document.createElement("h3");

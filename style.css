@@ -96,6 +96,12 @@ body {
     display: none;
 }
 
+/* ------ Characters side ------ */
+.characters{
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
 /* ------ Player cards ------ */
 
 .newPlayer{
