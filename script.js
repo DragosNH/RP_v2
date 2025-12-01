@@ -38,6 +38,8 @@ const characterCreation = () => {
             }
         });
 
+        
+
         // ------ Health Points and Mana Points ------
         // --- Health points ---
         let playerHp = document.createElement("p");
@@ -87,8 +89,5 @@ const characterCreation = () => {
 
 }
 
-
-
+// ------ Add new players maximum 6 ------
 addCharacter.addEventListener("click", characterCreation);
-
-console.log(currentPlayers)
