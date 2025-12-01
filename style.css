@@ -10,6 +10,18 @@
     color palette nr.10 */
 }
 
+::-webkit-scrollbar{
+    background-color: var(--txt-color);
+    width: 15px;
+
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--active-bk);
+    border-radius: 5px;
+    border: 1px solid var(--txt-color);
+}
+
 body {
     background-color: var(--bk-blue);
     color: var(--txt-color);
