@@ -42,7 +42,7 @@ const characterCreation = () => {
             }
         });
 
-        
+
 
         // ------ Health Points and Mana Points ------
         // --- Health points ---
@@ -79,20 +79,25 @@ const characterCreation = () => {
         // Characters classes
         let classesForm = document.createElement("form");
         let classSelect = document.createElement("select");
-        let theCharactersClassesList = document.createElement("option");
+        
+        characterClasses.forEach(className => {
+            let option = document.createElement("option");
+            option.text = className;
+            classSelect.appendChild(option);
+        })
 
 
         newPlayer.appendChild(nameInput);
         // Characters Classes form
         newPlayer.appendChild(classesForm);
         classesForm.appendChild(classSelect);
-        classSelect.appendChild(theCharactersClassesList);
+
         newPlayer.appendChild(playerHp);
         playerHp.appendChild(playerHpValue);
         newPlayer.appendChild(playerMp);
         playerMp.appendChild(playerMpValue);
         newPlayer.appendChild(removeBtn);
-        
+
 
         playableCharacters.appendChild(newPlayer)
 
