@@ -79,18 +79,34 @@ const characterCreation = () => {
         // Characters classes
         let classesForm = document.createElement("form");
         let classSelect = document.createElement("select");
-        
+
         characterClasses.forEach(className => {
             let option = document.createElement("option");
             option.text = className;
             classSelect.appendChild(option);
         })
 
+        let selectClassBtn = document.createElement("button");
+        selectClassBtn.innerHTML = "Select";
+
+        let selectedClassHeading = document.createElement("h4");
+
+        selectClassBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const selectedClass = classSelect.value;
+            selectedClassHeading.textContent = selectedClass;
+            classSelect.remove();
+            selectClassBtn.remove();
+        });
+
+
 
         newPlayer.appendChild(nameInput);
         // Characters Classes form
         newPlayer.appendChild(classesForm);
         classesForm.appendChild(classSelect);
+        newPlayer.appendChild(selectClassBtn);
+        classesForm.appendChild(selectedClassHeading);
 
         newPlayer.appendChild(playerHp);
         playerHp.appendChild(playerHpValue);
