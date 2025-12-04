@@ -8,13 +8,13 @@
     --white-txt: #ffeeff;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     background-color: var(--txt-color);
     width: 7px;
 
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: var(--active-bk);
     border-radius: 5px;
     border: 1px solid var(--txt-color);
@@ -107,24 +107,40 @@ body {
 }
 
 /* ------ Characters side ------ */
-.characters{
+.characters {
     max-height: 70vh;
     overflow-y: scroll;
 }
 
 /* ------ Player cards ------ */
 
-.newPlayer{
+.newPlayer {
     border: 3px solid var(--txt-color);
     border-radius: 15px;
     box-shadow: 10px 10px 10px var(--txt-color);
     margin: 25px;
 
-    & h3{
+    & h3 {
         margin: 2px;
     }
 
-    & h4{
+    & h4 {
         margin: 2px;
     }
+}
+
+.btnSend {
+    border: 3px solid var(--txt-color);
+    border-radius: 10px;
+    background-color: var(--bk-blue);
+    color: var(--txt-color);
+    font-family: "Roboto", sans-serif;
+    margin: 5px;
+}
+
+
+.btnSend:active {
+    background-color: var(--active-bk);
+    border: 3px solid var(--active-txt);
+    color: var(--active-txt);
 }

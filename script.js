@@ -76,6 +76,9 @@ const characterCreation = () => {
         })
 
 
+        let formStyle = document.createElement("div");
+        formStyle.classList.add("formStyle");
+
         // Characters classes
         let classesForm = document.createElement("form");
         let classSelect = document.createElement("select");
@@ -87,6 +90,7 @@ const characterCreation = () => {
         })
 
         let selectClassBtn = document.createElement("button");
+        selectClassBtn.classList.add("btnSend");
         selectClassBtn.innerHTML = "Select";
 
         let selectedClassHeading = document.createElement("h4");
@@ -104,8 +108,9 @@ const characterCreation = () => {
         newPlayer.appendChild(nameInput);
         // Characters Classes form
         newPlayer.appendChild(classesForm);
-        classesForm.appendChild(classSelect);
-        newPlayer.appendChild(selectClassBtn);
+        classesForm.appendChild(formStyle);
+        formStyle.appendChild(classSelect);
+        formStyle.appendChild(selectClassBtn);
         classesForm.appendChild(selectedClassHeading);
 
         newPlayer.appendChild(playerHp);
