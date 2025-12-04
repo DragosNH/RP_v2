@@ -75,12 +75,24 @@ const characterCreation = () => {
             }
         })
 
+
+        // Characters classes
+        let classesForm = document.createElement("form");
+        let classSelect = document.createElement("select");
+        let theCharactersClassesList = document.createElement("option");
+
+
         newPlayer.appendChild(nameInput);
+        // Characters Classes form
+        newPlayer.appendChild(classesForm);
+        classesForm.appendChild(classSelect);
+        classSelect.appendChild(theCharactersClassesList);
         newPlayer.appendChild(playerHp);
         playerHp.appendChild(playerHpValue);
         newPlayer.appendChild(playerMp);
         playerMp.appendChild(playerMpValue);
         newPlayer.appendChild(removeBtn);
+        
 
         playableCharacters.appendChild(newPlayer)
 
