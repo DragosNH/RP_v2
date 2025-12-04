@@ -119,4 +119,12 @@ body {
     border-radius: 15px;
     box-shadow: 10px 10px 10px var(--txt-color);
     margin: 25px;
+
+    & h3{
+        margin: 2px;
+    }
+
+    & h4{
+        margin: 2px;
+    }
 }
