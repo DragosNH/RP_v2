@@ -15,6 +15,9 @@ let maxPlayers = 6;
 let hpVal = 100;
 let manaVal = 100;
 
+// Characters classes list
+const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mange", "Necromancer"];
+
 // Add players to the board
 const characterCreation = () => {
     if (currentPlayers < maxPlayers) {
