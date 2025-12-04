@@ -82,6 +82,7 @@ const characterCreation = () => {
         // Characters classes
         let classesForm = document.createElement("form");
         let classSelect = document.createElement("select");
+        classSelect.classList.add("optionsDropdown");
 
         characterClasses.forEach(className => {
             let option = document.createElement("option");
@@ -101,6 +102,7 @@ const characterCreation = () => {
             selectedClassHeading.textContent = selectedClass;
             classSelect.remove();
             selectClassBtn.remove();
+            formStyle.remove();
         });
 
 

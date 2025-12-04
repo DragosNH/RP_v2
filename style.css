@@ -129,6 +129,13 @@ body {
     }
 }
 
+.optionsDropdown{
+    border: 3px solid var(--txt-color);
+    font-family: "Roboto", sans-serif;
+    background-color: var(--active-bk);
+    border-radius: 10px;
+}
+
 .btnSend {
     border: 3px solid var(--txt-color);
     border-radius: 10px;
