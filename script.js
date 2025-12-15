@@ -109,8 +109,23 @@ const characterCreation = () => {
         });
 
         // --------- Damage taken points ---------
-        let minDamageBtn = document.createElement("button"); 
+        let minDamageBtn = document.createElement("button");
+        minDamageBtn.classList.add("btnSend");
+        minDamageBtn.innerText = "Min";
 
+        function updateMinDamagedHp() {
+            playerHpValue.textContent = hpVal;
+        }
+
+        minDamageBtn.onclick = () => {
+            const damage = Math.floor(Math.random() * 5) + 1;
+            hpVal -= damage;
+
+            if (hpVal < 0) hpVal = 0;
+
+            updateMinDamagedHp();
+            console.log("HP:", hpVal);
+        }
 
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
