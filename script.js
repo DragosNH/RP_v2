@@ -75,7 +75,7 @@ const characterCreation = () => {
             }
         })
 
-
+        // --------- Class select options ------
         let formStyle = document.createElement("div");
         formStyle.classList.add("formStyle");
 
@@ -107,6 +107,8 @@ const characterCreation = () => {
 
 
 
+
+        // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
         // Characters Classes form
         newPlayer.appendChild(classesForm);
@@ -114,11 +116,14 @@ const characterCreation = () => {
         formStyle.appendChild(classSelect);
         formStyle.appendChild(selectClassBtn);
         classesForm.appendChild(selectedClassHeading);
-
+        // New player
         newPlayer.appendChild(playerHp);
+        // Player HP
         playerHp.appendChild(playerHpValue);
+        // Player MP
         newPlayer.appendChild(playerMp);
         playerMp.appendChild(playerMpValue);
+        // Close button
         newPlayer.appendChild(removeBtn);
 
 
