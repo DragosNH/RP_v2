@@ -45,6 +45,9 @@ const characterCreation = () => {
 
 
         // ------ Health Points and Mana Points ------
+        // --- Health container ---
+        let healthContainer = document.createElement("div");
+        healthContainer.classList.add("health-container");
         // --- Health points ---
         let playerHp = document.createElement("p");
         playerHp.classList.add("hp");
@@ -105,7 +108,8 @@ const characterCreation = () => {
             formStyle.remove();
         });
 
-
+        // --------- Damage taken points ---------
+        let minDamageBtn = document.createElement("button"); 
 
 
         // --------- Appended elements ---------
