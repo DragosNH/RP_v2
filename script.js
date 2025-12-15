@@ -121,7 +121,9 @@ const characterCreation = () => {
         formStyle.appendChild(selectClassBtn);
         classesForm.appendChild(selectedClassHeading);
         // New player
-        newPlayer.appendChild(playerHp);
+        newPlayer.appendChild(healthContainer);
+        healthContainer.appendChild(playerHp);
+        healthContainer.appendChild(minDamageBtn);
         // Player HP
         playerHp.appendChild(playerHpValue);
         // Player MP
