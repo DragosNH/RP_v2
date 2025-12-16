@@ -143,6 +143,11 @@ const characterCreation = () => {
             console.log("HP:", hpVal);
         }
 
+        // --- Critical Damage ---
+        let criticalDamageBtn = document.createElement("button");
+        criticalDamageBtn.classList.add("btnSend");
+        criticalDamageBtn.innerText = "Crit";
+
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
         // Characters Classes form
@@ -156,6 +161,7 @@ const characterCreation = () => {
         healthContainer.appendChild(playerHp);
         healthContainer.appendChild(minDamageBtn);
         healthContainer.appendChild(normalDamageBtn);
+        healthContainer.appendChild(criticalDamageBtn);
         // Player HP
         playerHp.appendChild(playerHpValue);
         // Player MP
