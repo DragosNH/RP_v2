@@ -148,6 +148,16 @@ const characterCreation = () => {
         criticalDamageBtn.classList.add("btnSend");
         criticalDamageBtn.innerText = "Crit";
 
+        criticalDamageBtn.onclick = () => {
+            const damage = Math.floor(Math.random() * 25) + 15;
+            hpVal -= damage;
+
+            if (hpVal < 0) hpVal = 0;
+
+            updateDamagedHp();
+            console.log("HP:", hpVal);
+        }
+
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
         // Characters Classes form
