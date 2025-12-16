@@ -109,11 +109,12 @@ const characterCreation = () => {
         });
 
         // --------- Damage taken points ---------
+        // --- Minimum Damage ---
         let minDamageBtn = document.createElement("button");
         minDamageBtn.classList.add("btnSend");
         minDamageBtn.innerText = "Min";
 
-        function updateMinDamagedHp() {
+        function updateDamagedHp() {
             playerHpValue.textContent = hpVal;
         }
 
@@ -123,9 +124,15 @@ const characterCreation = () => {
 
             if (hpVal < 0) hpVal = 0;
 
-            updateMinDamagedHp();
+            updateDamagedHp();
             console.log("HP:", hpVal);
         }
+
+        // --- Normal Damage ---
+        let normalDamageBtn = document.createElement("button");
+        normalDamageBtn.classList.add("btnSend");
+        normalDamageBtn.innerText = "Normal";
+
 
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
@@ -139,6 +146,7 @@ const characterCreation = () => {
         newPlayer.appendChild(healthContainer);
         healthContainer.appendChild(playerHp);
         healthContainer.appendChild(minDamageBtn);
+        healthContainer.appendChild(normalDamageBtn);
         // Player HP
         playerHp.appendChild(playerHpValue);
         // Player MP
