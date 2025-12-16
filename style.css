@@ -71,6 +71,13 @@ body {
     text-align: center;
 }
 
+.container div.health-container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+}
+
 /* ------ Buttons ------ */
 
 .btn {
@@ -151,3 +158,4 @@ body {
     border: 3px solid var(--active-txt);
     color: var(--active-txt);
 }
+
