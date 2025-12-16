@@ -133,6 +133,15 @@ const characterCreation = () => {
         normalDamageBtn.classList.add("btnSend");
         normalDamageBtn.innerText = "Normal";
 
+        normalDamageBtn.onclick = () => {
+            const damage = Math.floor(Math.random() * 15) + 5;
+            hpVal -= damage;
+
+            if (hpVal < 0) hpVal = 0;
+
+            updateDamagedHp();
+            console.log("HP:", hpVal);
+        }
 
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
