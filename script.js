@@ -112,6 +112,9 @@ const characterCreation = () => {
             } else if (selectedClass === characterClasses[1]) {
                 firstUltimateAttack.textContent = "Invisibility";
                 secondUltimateAttack.textContent = "Back stab";
+            } else if (selectedClass === characterClasses[2]){
+                firstUltimateAttack.textContent = "Teleportation";
+                secondUltimateAttack.textContent = "Ultimate fire blast";
             }
 
             classSelect.remove();
