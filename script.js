@@ -13,7 +13,6 @@ let maxPlayers = 6;
 
 // Created elements declared variables
 let hpVal = 100;
-let manaVal = 100;
 
 // Characters classes list
 const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mage", "Necromancer", "Priest"];
@@ -55,13 +54,7 @@ const characterCreation = () => {
         let playerHpValue = document.createElement("strong");
         playerHpValue.classList.add('hpValue');
         playerHpValue.innerText = hpVal;
-        // --- Mana points ---
-        let playerMp = document.createElement("p");
-        playerMp.classList.add("mp");
-        playerMp.innerText = "MP: "
-        let playerMpValue = document.createElement("strong");
-        playerMpValue.classList.add("mpValue");
-        playerMpValue.innerText = manaVal;
+
 
         // ------ Remove Button ------
         let removeBtn = document.createElement("button");
@@ -109,6 +102,8 @@ const characterCreation = () => {
             if (selectedClass === characterClasses[0]) {
                 firstUltimateAttack.textContent = "Meteor smash";
                 secondUltimateAttack.textContent = "Divine slash";
+                playerHpValue.textContent = hpVal + 20;
+
             } else if (selectedClass === characterClasses[1]) {
                 firstUltimateAttack.textContent = "Invisibility";
                 secondUltimateAttack.textContent = "Back stab";
@@ -217,9 +212,6 @@ const characterCreation = () => {
         healthContainer.appendChild(criticalDamageBtn);
         // Player HP
         playerHp.appendChild(playerHpValue);
-        // Player MP
-        newPlayer.appendChild(playerMp);
-        playerMp.appendChild(playerMpValue);
 
         // Ultimate attacks
         newPlayer.appendChild(ultimateAttContainer);
