@@ -11,8 +11,7 @@ const caveArea = document.querySelector(".caveBtn");
 let currentPlayers = 0;
 let maxPlayers = 6;
 
-// Created elements declared variables
-let hpVal = 100;
+
 
 // Characters classes list
 const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mage", "Necromancer", "Priest"];
@@ -48,12 +47,15 @@ const characterCreation = () => {
         let healthContainer = document.createElement("div");
         healthContainer.classList.add("health-container");
         // --- Health points ---
+        let baseHp = 100;
+        let maxHp = baseHp;
+        let currentHp = baseHp;
         let playerHp = document.createElement("p");
         playerHp.classList.add("hp");
         playerHp.innerText = "HP: "
         let playerHpValue = document.createElement("strong");
         playerHpValue.classList.add('hpValue');
-        playerHpValue.innerText = hpVal;
+        playerHpValue.innerText = currentHp;
 
 
         // ------ Remove Button ------
@@ -99,43 +101,48 @@ const characterCreation = () => {
 
             // --- Classes ultimate attacks ---
 
-            if (selectedClass === characterClasses[0]) {
+            if (selectedClass === "Warrior") {
                 firstUltimateAttack.textContent = "Meteor smash";
                 secondUltimateAttack.textContent = "Divine slash";
-                hpVal += 50;
-                playerHpValue.textContent = hpVal;
+                maxHp = baseHp + 50;
+                currentHp = maxHp;
+                playerHpValue.textContent = currentHp;
 
-            } else if (selectedClass === characterClasses[1]) {
+            } else if (selectedClass === "Rogue") {
                 firstUltimateAttack.textContent = "Invisibility";
                 secondUltimateAttack.textContent = "Back stab";
-                hpVal -= 20
-                playerHpValue.textContent = hpVal;
+                maxHp = baseHp + 20;
+                currentHp = maxHp;
+                playerHpValue.textContent = currentHp;
 
-            } else if (selectedClass === characterClasses[2]) {
+            } else if (selectedClass === "Sorcerer") {
                 firstUltimateAttack.textContent = "Arcane blast";
                 secondUltimateAttack.textContent = "Arcane prison";
 
-            } else if (selectedClass === characterClasses[3]) {
+            } else if (selectedClass === "Paladin") {
                 firstUltimateAttack.textContent = "Divine shield";
                 secondUltimateAttack.textContent = "Celestial hammer";
-                hpVal += 50
-                playerHpValue.textContent = hpVal;
+                maxHp = baseHp + 50;
+                currentHp = maxHp;
+                playerHpValue.textContent = currentHp;
 
-            } else if (selectedClass === characterClasses[4]) {
+            } else if (selectedClass === "Mage") {
                 firstUltimateAttack.textContent = "Great fire explosion";
                 secondUltimateAttack.textContent = "Ice prison";
 
-            } else if (selectedClass === characterClasses[5]) {
+            } else if (selectedClass === "Necromancer") {
                 firstUltimateAttack.textContent = "Reanimate dead body";
                 secondUltimateAttack.textContent = "Living dead army summon";
-                hpVal += 20;
-                playerHpValue.textContent = hpVal;
+                maxHp = baseHp + 20;
+                currentHp = maxHp;
+                playerHpValue.textContent = currentHp;
 
-            } else if (selectedClass === characterClasses[6]) {
+            } else if (selectedClass === "Priest") {
                 firstUltimateAttack.textContent = "Teleportation";
                 secondUltimateAttack.textContent = "Resurrect";
-                hpVal += 100;
-                playerHpValue.textContent = hpVal;
+                maxHp = baseHp + 100;
+                currentHp = maxHp;
+                playerHpValue.textContent = currentHp;
 
             }
 
@@ -154,18 +161,15 @@ const characterCreation = () => {
         minDamageBtn.innerText = "Min";
 
         function updateDamagedHp() {
-            playerHpValue.textContent = hpVal;
+            playerHpValue.textContent = currentHp;
         }
 
         minDamageBtn.onclick = () => {
             const damage = Math.floor(Math.random() * 5) + 1;
-            hpVal -= damage;
-
-            if (hpVal < 0) hpVal = 0;
-
+            currentHp = Math.max(0, currentHp - damage);
             updateDamagedHp();
-            console.log("HP:", hpVal);
-        }
+        };
+
 
         // --- Normal Damage ---
         let normalDamageBtn = document.createElement("button");
@@ -174,12 +178,13 @@ const characterCreation = () => {
 
         normalDamageBtn.onclick = () => {
             const damage = Math.floor(Math.random() * 15) + 5;
-            hpVal -= damage;
+            currentHp = Math.max(0, currentHp - damage);
+            updateDamagedHp();
 
-            if (hpVal < 0) hpVal = 0;
+            if (currentHp < 0) currentHp = 0;
 
             updateDamagedHp();
-            console.log("HP:", hpVal);
+            console.log("HP:", currentHp);
         }
 
         // --- Critical Damage ---
@@ -189,12 +194,13 @@ const characterCreation = () => {
 
         criticalDamageBtn.onclick = () => {
             const damage = Math.floor(Math.random() * 25) + 15;
-            hpVal -= damage;
+            currentHp = Math.max(0, currentHp - damage);
+            updateDamagedHp();
 
-            if (hpVal < 0) hpVal = 0;
+            if (currentHp < 0) currentHp = 0;
 
             updateDamagedHp();
-            console.log("HP:", hpVal);
+            console.log("HP:", currentHp);
         }
 
 
