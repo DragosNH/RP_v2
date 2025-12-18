@@ -121,6 +121,12 @@ const characterCreation = () => {
             } else if (selectedClass === characterClasses[4]){
                 firstUltimateAttack.textContent = "Great fire explosion";
                 secondUltimateAttack.textContent = "Ice prison";
+            }else if (selectedClass === characterClasses[5]){
+                firstUltimateAttack.textContent = "Reanimate dead body";
+                secondUltimateAttack.textContent = "Living dead army summon";
+            }else if (selectedClass === characterClasses[6]){
+                firstUltimateAttack.textContent = "Teleportation";
+                secondUltimateAttack.textContent = "Resurrect";
             }
 
             classSelect.remove();
