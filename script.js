@@ -102,32 +102,50 @@ const characterCreation = () => {
             if (selectedClass === characterClasses[0]) {
                 firstUltimateAttack.textContent = "Meteor smash";
                 secondUltimateAttack.textContent = "Divine slash";
-                playerHpValue.textContent = hpVal + 20;
+                hpVal += 50;
+                playerHpValue.textContent = hpVal;
 
             } else if (selectedClass === characterClasses[1]) {
                 firstUltimateAttack.textContent = "Invisibility";
                 secondUltimateAttack.textContent = "Back stab";
-            } else if (selectedClass === characterClasses[2]){
+                hpVal -= 20
+                playerHpValue.textContent = hpVal;
+
+            } else if (selectedClass === characterClasses[2]) {
                 firstUltimateAttack.textContent = "Arcane blast";
                 secondUltimateAttack.textContent = "Arcane prison";
-            } else if (selectedClass === characterClasses[3]){
+
+            } else if (selectedClass === characterClasses[3]) {
                 firstUltimateAttack.textContent = "Divine shield";
                 secondUltimateAttack.textContent = "Celestial hammer";
-            } else if (selectedClass === characterClasses[4]){
+                hpVal += 50
+                playerHpValue.textContent = hpVal;
+
+            } else if (selectedClass === characterClasses[4]) {
                 firstUltimateAttack.textContent = "Great fire explosion";
                 secondUltimateAttack.textContent = "Ice prison";
-            }else if (selectedClass === characterClasses[5]){
+
+            } else if (selectedClass === characterClasses[5]) {
                 firstUltimateAttack.textContent = "Reanimate dead body";
                 secondUltimateAttack.textContent = "Living dead army summon";
-            }else if (selectedClass === characterClasses[6]){
+                hpVal += 20;
+                playerHpValue.textContent = hpVal;
+
+            } else if (selectedClass === characterClasses[6]) {
                 firstUltimateAttack.textContent = "Teleportation";
                 secondUltimateAttack.textContent = "Resurrect";
+                hpVal += 100;
+                playerHpValue.textContent = hpVal;
+
             }
 
             classSelect.remove();
             selectClassBtn.remove();
             formStyle.remove();
         });
+
+        const selectedClass = classSelect.value;
+
 
         // --------- Damage taken points ---------
         // --- Minimum Damage ---
