@@ -16,7 +16,7 @@ let hpVal = 100;
 let manaVal = 100;
 
 // Characters classes list
-const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mage", "Necromancer"];
+const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mage", "Necromancer", "Priest"];
 
 // Add players to the board
 const characterCreation = () => {
@@ -113,11 +113,14 @@ const characterCreation = () => {
                 firstUltimateAttack.textContent = "Invisibility";
                 secondUltimateAttack.textContent = "Back stab";
             } else if (selectedClass === characterClasses[2]){
-                firstUltimateAttack.textContent = "Teleportation";
+                firstUltimateAttack.textContent = "Arcane blast";
                 secondUltimateAttack.textContent = "Arcane prison";
             } else if (selectedClass === characterClasses[3]){
                 firstUltimateAttack.textContent = "Divine shield";
                 secondUltimateAttack.textContent = "Celestial hammer";
+            } else if (selectedClass === characterClasses[4]){
+                firstUltimateAttack.textContent = "Great fire explosion";
+                secondUltimateAttack.textContent = "Ice prison";
             }
 
             classSelect.remove();
