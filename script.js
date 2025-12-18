@@ -104,8 +104,14 @@ const characterCreation = () => {
             const selectedClass = classSelect.value;
             selectedClassHeading.textContent = selectedClass;
 
+            // --- Classes ultimate attacks ---
+
             if (selectedClass === characterClasses[0]) {
                 firstUltimateAttack.textContent = "Meteor smash";
+                secondUltimateAttack.textContent = "Divine slash";
+            } else if (selectedClass === characterClasses[1]) {
+                firstUltimateAttack.textContent = "Invisibility";
+                secondUltimateAttack.textContent = "Back stab";
             }
 
             classSelect.remove();
@@ -174,6 +180,9 @@ const characterCreation = () => {
         let firstUltimateAttack = document.createElement("p");
         firstUltimateAttack.innerText = "-";
 
+        let secondUltimateAttack = document.createElement("p");
+        secondUltimateAttack.innerText = "-";
+
 
 
 
@@ -201,6 +210,7 @@ const characterCreation = () => {
         newPlayer.appendChild(ultimateAttContainer);
         ultimateAttContainer.appendChild(attacksTitle);
         ultimateAttContainer.appendChild(firstUltimateAttack);
+        ultimateAttContainer.appendChild(secondUltimateAttack);
 
         // Close button
         newPlayer.appendChild(removeBtn);
