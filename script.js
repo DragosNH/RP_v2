@@ -16,10 +16,10 @@ let hpVal = 100;
 let manaVal = 100;
 
 // Characters classes list
-const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mange", "Necromancer"];
+const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mage", "Necromancer"];
 
 // Add players to the board
-const characterCreation = (charClass) => {
+const characterCreation = () => {
     if (currentPlayers < maxPlayers) {
 
         // ------ Player div container ------
@@ -103,6 +103,11 @@ const characterCreation = (charClass) => {
             e.preventDefault();
             const selectedClass = classSelect.value;
             selectedClassHeading.textContent = selectedClass;
+
+            if (selectedClass === characterClasses[0]) {
+                firstUltimateAttack.textContent = "Meteor smash";
+            }
+
             classSelect.remove();
             selectClassBtn.remove();
             formStyle.remove();
@@ -160,8 +165,17 @@ const characterCreation = (charClass) => {
 
 
         // --------- Ultimate attacks ---------
-        let ulimateAttContainer = document.createElement("div");
-        ulimateAttContainer.classList.add("attacks-container");
+        let ultimateAttContainer = document.createElement("div");
+        ultimateAttContainer.classList.add("attacks-container");
+
+        let attacksTitle = document.createElement("h4");
+        attacksTitle.innerText = "Ultimate attacks";
+
+        let firstUltimateAttack = document.createElement("p");
+        firstUltimateAttack.innerText = "-";
+
+
+
 
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
@@ -184,7 +198,9 @@ const characterCreation = (charClass) => {
         playerMp.appendChild(playerMpValue);
 
         // Ultimate attacks
-        newPlayer.appendChild(ulimateAttContainer);
+        newPlayer.appendChild(ultimateAttContainer);
+        ultimateAttContainer.appendChild(attacksTitle);
+        ultimateAttContainer.appendChild(firstUltimateAttack);
 
         // Close button
         newPlayer.appendChild(removeBtn);
