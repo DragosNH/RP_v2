@@ -19,7 +19,7 @@ let manaVal = 100;
 const characterClasses = ["Warrior", "Rogue", "Sorcerer", "Paladin", "Mange", "Necromancer"];
 
 // Add players to the board
-const characterCreation = () => {
+const characterCreation = (charClass) => {
     if (currentPlayers < maxPlayers) {
 
         // ------ Player div container ------
@@ -158,6 +158,11 @@ const characterCreation = () => {
             console.log("HP:", hpVal);
         }
 
+
+        // --------- Ultimate attacks ---------
+        let ulimateAttContainer = document.createElement("div");
+        ulimateAttContainer.classList.add("attacks-container");
+
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
         // Characters Classes form
@@ -177,6 +182,10 @@ const characterCreation = () => {
         // Player MP
         newPlayer.appendChild(playerMp);
         playerMp.appendChild(playerMpValue);
+
+        // Ultimate attacks
+        newPlayer.appendChild(ulimateAttContainer);
+
         // Close button
         newPlayer.appendChild(removeBtn);
 
