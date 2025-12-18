@@ -114,7 +114,10 @@ const characterCreation = () => {
                 secondUltimateAttack.textContent = "Back stab";
             } else if (selectedClass === characterClasses[2]){
                 firstUltimateAttack.textContent = "Teleportation";
-                secondUltimateAttack.textContent = "Ultimate fire blast";
+                secondUltimateAttack.textContent = "Arcane prison";
+            } else if (selectedClass === characterClasses[3]){
+                firstUltimateAttack.textContent = "Divine shield";
+                secondUltimateAttack.textContent = "Celestial hammer";
             }
 
             classSelect.remove();
