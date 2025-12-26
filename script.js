@@ -151,8 +151,6 @@ const characterCreation = () => {
             formStyle.remove();
         });
 
-        const selectedClass = classSelect.value;
-
 
         // --------- Damage taken points ---------
         // --- Minimum Damage ---
@@ -164,9 +162,18 @@ const characterCreation = () => {
             playerHpValue.textContent = currentHp;
         }
 
+        const checkDeath = () => {
+            if (currentHp === 0) {
+                newPlayer.remove();
+                currentPlayers--;
+            }
+        };
+
         minDamageBtn.onclick = () => {
             const damage = Math.floor(Math.random() * 5) + 1;
             currentHp = Math.max(0, currentHp - damage);
+
+            checkDeath();
             updateDamagedHp();
         };
 
@@ -179,12 +186,9 @@ const characterCreation = () => {
         normalDamageBtn.onclick = () => {
             const damage = Math.floor(Math.random() * 15) + 5;
             currentHp = Math.max(0, currentHp - damage);
-            updateDamagedHp();
 
-            if (currentHp < 0) currentHp = 0;
-
+            checkDeath();
             updateDamagedHp();
-            console.log("HP:", currentHp);
         }
 
         // --- Critical Damage ---
@@ -195,12 +199,9 @@ const characterCreation = () => {
         criticalDamageBtn.onclick = () => {
             const damage = Math.floor(Math.random() * 25) + 15;
             currentHp = Math.max(0, currentHp - damage);
-            updateDamagedHp();
 
-            if (currentHp < 0) currentHp = 0;
-
+            checkDeath();
             updateDamagedHp();
-            console.log("HP:", currentHp);
         }
 
 
@@ -225,7 +226,7 @@ const characterCreation = () => {
 
         const useFirstUltimate = () => {
             ultimateAttkOneCount++;
-            if (ultimateAttkOneCount == 3){
+            if (ultimateAttkOneCount == 3) {
                 firstUltimateAttack.style.textDecoration = "line-through";
                 firstUltimateAttack.style.color = "#4B8DA3";
             }
