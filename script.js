@@ -227,6 +227,7 @@ const characterCreation = () => {
             ultimateAttkOneCount++;
             if (ultimateAttkOneCount == 3){
                 firstUltimateAttack.style.textDecoration = "line-through";
+                firstUltimateAttack.style.color = "#4B8DA3";
             }
         };
 
@@ -234,6 +235,7 @@ const characterCreation = () => {
             ultimateAttkTwoCount++;
             if (ultimateAttkTwoCount == 2) {
                 secondUltimateAttack.style.textDecoration = "line-through";
+                secondUltimateAttack.style.color = "#4B8DA3";
             }
         }
 
