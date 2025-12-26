@@ -221,6 +221,15 @@ const characterCreation = () => {
         let ultimateAttkOneCount = 0;
         let ultimateAttkTwoCount = 0;
 
+        const useFirstUltimate = () => {
+            ultimateAttkOneCount++;
+            if (ultimateAttkOneCount == 3){
+                firstUltimateAttack.style.textDecoration = "line-through";
+            }
+        };
+
+        firstUltimateAttack.addEventListener("click", useFirstUltimate);
+
 
         // --------- Appended elements ---------
         newPlayer.appendChild(nameInput);
