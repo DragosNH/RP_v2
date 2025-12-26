@@ -217,7 +217,9 @@ const characterCreation = () => {
         let secondUltimateAttack = document.createElement("p");
         secondUltimateAttack.innerText = "-";
 
-
+        // Ultimate attacks functions
+        let ultimateAttkOneCount = 0;
+        let ultimateAttkTwoCount = 0;
 
 
         // --------- Appended elements ---------
