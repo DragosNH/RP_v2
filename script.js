@@ -230,7 +230,15 @@ const characterCreation = () => {
             }
         };
 
+        const useSecondUltimate = () => {
+            ultimateAttkTwoCount++;
+            if (ultimateAttkTwoCount == 2) {
+                secondUltimateAttack.style.textDecoration = "line-through";
+            }
+        }
+
         firstUltimateAttack.addEventListener("click", useFirstUltimate);
+        secondUltimateAttack.addEventListener("click", useSecondUltimate);
 
 
         // --------- Appended elements ---------
