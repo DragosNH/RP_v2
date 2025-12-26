@@ -160,3 +160,9 @@ body {
     color: var(--active-txt);
 }
 
+/* --------- Ultimate attacks --------- */
+
+.ultimateAttText{
+    cursor: pointer;
+    user-select: none
+}

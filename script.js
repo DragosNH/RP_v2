@@ -212,9 +212,11 @@ const characterCreation = () => {
         attacksTitle.innerText = "Ultimate attacks";
 
         let firstUltimateAttack = document.createElement("p");
+        firstUltimateAttack.classList.add("ultimateAttText")
         firstUltimateAttack.innerText = "-";
 
         let secondUltimateAttack = document.createElement("p");
+        secondUltimateAttack.classList.add("ultimateAttText")
         secondUltimateAttack.innerText = "-";
 
         // Ultimate attacks functions
