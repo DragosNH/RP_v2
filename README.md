@@ -18,3 +18,4 @@ I got the colors from [here](https://piktochart.com/tips/fantasy-color-palette).
 - w3schools for the [grid](https://www.w3schools.com/css/css_grid.asp).
 - Main font [Eagle Lake](https://fonts.google.com/specimen/Eagle+Lake).
 - Secondary font [Roboto](https://fonts.google.com/specimen/Roboto).
+- [Snackbar](https://www.w3schools.com/howto/howto_js_snackbar.asp).
