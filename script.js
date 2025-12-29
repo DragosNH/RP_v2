@@ -224,6 +224,7 @@ const characterCreation = () => {
         let ultimateAttkOneCount = 3;
         let ultimateAttkTwoCount = 2;
 
+        // --- Snackbar popup when out of ultimate attacks ---
         function snackBar() {
             let toast = document.getElementById("snackbar");
             toast.className = "show";
