@@ -225,9 +225,9 @@ const characterCreation = () => {
         let ultimateAttkTwoCount = 2;
 
         function snackBar() {
-            var x = document.getElementById("snackbar");
-            x.className = "show";
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+            let toast = document.getElementById("snackbar");
+            toast.className = "show";
+            setTimeout(function () { toast.className = toast.className.replace("show", ""); }, 3000);
         }
 
         const useFirstUltimate = () => {
