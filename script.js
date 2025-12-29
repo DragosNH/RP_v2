@@ -221,22 +221,32 @@ const characterCreation = () => {
         secondUltimateAttack.innerText = "-";
 
         // Ultimate attacks functions
-        let ultimateAttkOneCount = 0;
-        let ultimateAttkTwoCount = 0;
+        let ultimateAttkOneCount = 3;
+        let ultimateAttkTwoCount = 2;
+
+        function snackBar() {
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
 
         const useFirstUltimate = () => {
-            ultimateAttkOneCount++;
-            if (ultimateAttkOneCount == 3) {
+            ultimateAttkOneCount--;
+            if (ultimateAttkOneCount == 0) {
+                ultimateAttkOneCount = 0;
                 firstUltimateAttack.style.textDecoration = "line-through";
                 firstUltimateAttack.style.color = "#4B8DA3";
+                snackBar();
             }
         };
 
         const useSecondUltimate = () => {
-            ultimateAttkTwoCount++;
-            if (ultimateAttkTwoCount == 2) {
+            ultimateAttkTwoCount--;
+            if (ultimateAttkTwoCount == 0) {
+                ultimateAttkTwoCount = 0;
                 secondUltimateAttack.style.textDecoration = "line-through";
                 secondUltimateAttack.style.color = "#4B8DA3";
+                snackBar();
             }
         }
 
