@@ -173,10 +173,11 @@ body {
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
-  background-color: var(--txt-color);
-  color: var(--bk-blue);
+  background-color: var(--bk-blue);
+  color: var(--txt-color);
+  border: 5px solid var(--txt-color);
   text-align: center;
-  border-radius: 2px;
+  border-radius: 15px;
   padding: 16px;
   position: fixed;
   z-index: 1;
