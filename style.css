@@ -61,9 +61,8 @@ body {
     grid-area: areas;
     min-height: 70vh;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: start;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container div.footer {
@@ -77,6 +76,14 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0;
+}
+
+.top-buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: flex-start;
+
 }
 
 /* ------ Buttons ------ */
@@ -210,4 +217,13 @@ body {
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+/* --------- Area Container --------- */
+
+.area-container{
+    border: 3px solid var(--txt-color);
+    width: 90%;
+    height: 90%;
+    overflow-y: scroll;
 }
