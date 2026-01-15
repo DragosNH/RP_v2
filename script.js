@@ -2,15 +2,10 @@
 const addCharacter = document.querySelector(".addCharacter");
 const playableCharacters = document.querySelector(".playableCharacters")
 
-// Select the desired area
-const towerArea = document.querySelector(".towerBtn");
-const forestArea = document.querySelector(".forestBtn");
-const caveArea = document.querySelector(".caveBtn");
 
 // The number of players
 let currentPlayers = 0;
 let maxPlayers = 6;
-
 
 
 // Characters classes list
