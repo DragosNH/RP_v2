@@ -10,10 +10,19 @@ const castleAdventure = () => {
     if(currentPlaces < maxPlaces){
         const castleContainer = document.createElement("div");
         castleContainer.classList.add("area-container");
-    
-        areas.appendChild(castleContainer);
-        currentPlaces++;
 
+        let removeBtn = document.createElement("button");
+        removeBtn.classList.add("removeBtn");
+        removeBtn.innerText = "Close";
+    
+        removeBtn.onclick = () => {
+            castleContainer.remove();
+            currentPlaces--;
+        }
+
+        areas.appendChild(castleContainer);
+        castleContainer.appendChild(removeBtn);
+        currentPlaces++;
     } else {
         castleBtn.classList.add("active");
     }
