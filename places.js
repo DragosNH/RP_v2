@@ -6,34 +6,57 @@ const areas = document.querySelector(".areas");
 let currentPlaces = 0;
 const maxPlaces = 1;
 
-const castleAdventure = () => {
-    if(currentPlaces < maxPlaces){
-        // --------- Container ---------
-        const castleContainer = document.createElement("div");
-        castleContainer.classList.add("area-container");
-        
-        // --------- Remove Button ---------
-        let removeBtn = document.createElement("button");
-        removeBtn.classList.add("removeBtn");
-        removeBtn.innerText = "Close";
-        
-        removeBtn.onclick = () => {
-            castleContainer.remove();
-            currentPlaces--;
-        }
 
-        // --------- Title ---------
-        const title = document.createElement("h2");
-        title.innerText = "The Haunted Castle"
-        title.classList.add("scene-title");
-
-        areas.appendChild(castleContainer);
-        castleContainer.appendChild(removeBtn);
-        castleContainer.appendChild(title);
-        currentPlaces++;
-    } else {
-        castleBtn.classList.add("active");
+function clearCurrentScene() {
+    const existingScene = document.querySelector(".area-container");
+    if (existingScene) {
+        existingScene.remove();
     }
+    
+    castleBtn.classList.remove("active");
+    forestBtn.classList.remove("active");
+    caveBtn.classList.remove("active");
 }
 
-castleBtn.addEventListener("click", castleAdventure);
+function createScene(titleText, activeBtn) {
+    clearCurrentScene();
+
+    // --------- Container ---------
+    const container = document.createElement("div");
+    container.classList.add("area-container");
+
+    // --------- Remove Button ---------
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("removeBtn");
+    removeBtn.innerText = "Close";
+
+    removeBtn.onclick = () => {
+        container.remove();
+        activeBtn.classList.remove("active");
+    };
+
+    // --------- Title ---------
+    const title = document.createElement("h2");
+    title.innerText = titleText;
+    title.classList.add("scene-title");
+
+    areas.appendChild(container);
+    container.appendChild(removeBtn);
+    container.appendChild(title);
+
+    activeBtn.classList.add("active");
+}
+
+
+
+castleBtn.addEventListener("click", () => {
+    createScene("The Haunted Castle", castleBtn);
+});
+
+forestBtn.addEventListener("click", () => {
+    createScene("The Forbidden Forest", forestBtn);
+});
+
+caveBtn.addEventListener("click", () => {
+    createScene("The Dark Cave", caveBtn);
+});
