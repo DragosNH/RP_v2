@@ -227,3 +227,7 @@ body {
     height: 90%;
     overflow-y: scroll;
 }
+
+.scene-title{
+    text-align: center;
+}
