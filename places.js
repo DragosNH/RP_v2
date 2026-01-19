@@ -3,8 +3,69 @@ const forestBtn = document.querySelector(".forestBtn");
 const caveBtn = document.querySelector(".caveBtn");
 const areas = document.querySelector(".areas");
 
-let currentPlaces = 0;
-const maxPlaces = 1;
+const scenes = {
+    castle: {
+        title: "The Haunted Castle",
+        monsters: ["canibalBook", "possesedArmour", "movingPainting"]
+    },
+    forest: {
+        title: "The Forbidden Forest",
+        monsters: ["demonWolf", "killerThree", "corruptBolde"]
+    },
+    cave: {
+        title: "The Forsaken Cave",
+        monsters: ["evilBear", "quickmoss", "vampireBat"]
+    }
+}
+
+const monsters = {
+    canibalBook: {
+        name: "Canibal Book",
+        maxHp: 20,
+        spawnChance: 0.5 
+    },
+    possesedArmour: {
+        name: "Possesed Armour",
+        maxHp: 45,
+        spawnChance: 0.5
+    },
+    movingPainting: {
+        name : "Moving Painting",
+        maxHp: 30,
+        spawnChance: 0.2
+    },
+    demonWolf: {
+        name: "Demon Wolf",
+        maxHp: 45,
+        spawnChance: 0.5
+    },
+    killerThree: {
+        name: "Killer Three",
+        maxHp: 30,
+        spawnChance: 0.5
+    },
+    corruptBolder: {
+        name : "Corrupt Bolder",
+        maxHp: 20,
+        spawnChance: 0.5
+    },
+    evilBear: {
+        name: "Evil Bear",
+        maxHp : 45,
+        spawnChance: 0.5,
+    },
+    quickmoss: {
+        name: "Quickmoss",
+        maxHp: 20,
+        spawnChance: 0.5
+    },
+    vampireBat: {
+        name: "Vampire Bat",
+        maxHp: 30,
+        spawnChance: 0.5
+    }
+
+}
 
 
 function clearCurrentScene() {
@@ -37,7 +98,7 @@ function createScene(titleText, activeBtn) {
 
     // --------- Title ---------
     const title = document.createElement("h2");
-    title.innerText = titleText;
+    title.innerText = titleText.title;
     title.classList.add("scene-title");
 
     areas.appendChild(container);
@@ -50,13 +111,13 @@ function createScene(titleText, activeBtn) {
 
 
 castleBtn.addEventListener("click", () => {
-    createScene("The Haunted Castle", castleBtn);
+    createScene(scenes.castle, castleBtn);
 });
 
 forestBtn.addEventListener("click", () => {
-    createScene("The Forbidden Forest", forestBtn);
+    createScene(scenes.forest, forestBtn);
 });
 
 caveBtn.addEventListener("click", () => {
-    createScene("The Dark Cave", caveBtn);
+    createScene(scenes.cave, caveBtn);
 });
