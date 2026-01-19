@@ -7,13 +7,16 @@ let currentPlaces = 0;
 const maxPlaces = 1;
 
 const castleAdventure = () => {
-    const castleContainer = document.createElement("div");
-    castleContainer.classList.add("area-container");
+    if(currentPlaces < maxPlaces){
+        const castleContainer = document.createElement("div");
+        castleContainer.classList.add("area-container");
+    
+        areas.appendChild(castleContainer);
+        currentPlaces++;
 
-
-
-    areas.appendChild(castleContainer);
-    currentPlaces++;
+    } else {
+        castleBtn.classList.add("active");
+    }
 }
 
 castleBtn.addEventListener("click", castleAdventure);
