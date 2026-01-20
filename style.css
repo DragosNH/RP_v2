@@ -232,3 +232,12 @@ body {
 .scene-title{
     text-align: center;
 }
+
+.sceneBtn{
+    width: 150px;
+}
+
+.sceneBtnsContainer{
+    display: flex;
+    justify-content: space-around;
+}

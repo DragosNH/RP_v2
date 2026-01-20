@@ -6,19 +6,23 @@ const areas = document.querySelector(".areas");
 const scenes = {
     castle: {
         title: "The Haunted Castle",
-        monsters: ["canibalBook", "possesedArmour", "movingPainting"]
+        monsters: ["canibalBook", "possesedArmour", "movingPainting"],
+        places: ["Library", "Armour room", "Study room"]
     },
     forest: {
         title: "The Forbidden Forest",
-        monsters: ["demonWolf", "killerThree", "corruptBolde"]
+        monsters: ["demonWolf", "killerThree", "corruptBolder"],
+        places: ["River", "The passage", "The bridge"]
     },
     cave: {
         title: "The Forsaken Cave",
-        monsters: ["evilBear", "quickmoss", "vampireBat"]
+        monsters: ["evilBear", "quickmoss", "vampireBat"],
+        places: ["The passage", "The waterfall", "The dark corner"]
     }
 }
 
 const monsters = {
+    // --- The castle ---
     canibalBook: {
         name: "Canibal Book",
         maxHp: 20,
@@ -34,6 +38,7 @@ const monsters = {
         maxHp: 30,
         spawnChance: 0.2
     },
+    // --- The forest ---
     demonWolf: {
         name: "Demon Wolf",
         maxHp: 45,
@@ -49,6 +54,7 @@ const monsters = {
         maxHp: 20,
         spawnChance: 0.5
     },
+    // --- The cave ---
     evilBear: {
         name: "Evil Bear",
         maxHp: 45,
@@ -99,18 +105,43 @@ function createScene(titleText, activeBtn) {
     const firstSpace = document.createElement("div");
     firstSpace.classList.add("firstSpace");
 
+    // --------- Scene buttons ---------
+    const sceneBtnsContainer = document.createElement("div");
+    sceneBtnsContainer.classList.add("sceneBtnsContainer");
+
+    const sceneButton1 = document.createElement("button");
+    sceneButton1.innerText = titleText.places[0];
+    sceneButton1.classList.add("btn");
+    sceneButton1.classList.add("sceneBtn");
+
+    const sceneButton2 = document.createElement("button");
+    sceneButton2.innerText = titleText.places[1];
+    sceneButton2.classList.add("btn");
+    sceneButton2.classList.add("sceneBtn");
+
+    const sceneButton3 = document.createElement("button");
+    sceneButton3.innerText = titleText.places[2];
+    sceneButton3.classList.add("btn")
+    sceneButton3.classList.add("sceneBtn")
+
     // ------ Monsters call ------
     let firstMonsterId = titleText.monsters[0];
     let firstMonster = monsters[firstMonsterId];
 
-    let secondMonsterId = titleText.monsters[0];
+    let secondMonsterId = titleText.monsters[1];
     let secondMonster = monsters[secondMonsterId];
 
-    let thirdMonsterId = titleText.monsters[0];
+    let thirdMonsterId = titleText.monsters[2];
     let thirdMonster = monsters[thirdMonsterId];
 
-    let firstMonsterTitle = document.createElement("h3");
-    firstMonsterTitle.innerText = firstMonster.name;
+    // let firstMonsterTitle = document.createElement("h3");
+    // firstMonsterTitle.innerText = firstMonster.name;
+
+    // let secondMonsterTitle = document.createElement("h3");
+    // secondMonsterTitle.innerText = secondMonster.name;
+
+    // let thirdMonsterTitle = document.createElement("h3");
+    // thirdMonsterTitle.innerText = thirdMonster.name;
 
     // --------- Title ---------
     const title = document.createElement("h2");
@@ -121,8 +152,15 @@ function createScene(titleText, activeBtn) {
     container.appendChild(removeBtn);
     container.appendChild(title);
     container.appendChild(firstSpace);
+    
+    container.appendChild(sceneBtnsContainer);
+    sceneBtnsContainer.appendChild(sceneButton1);
+    sceneBtnsContainer.appendChild(sceneButton2);
+    sceneBtnsContainer.appendChild(sceneButton3);
 
     firstSpace.appendChild(firstMonsterTitle)
+    firstSpace.appendChild(secondMonsterTitle)
+    firstSpace.appendChild(thirdMonsterTitle)
 
     activeBtn.classList.add("active");
 }
