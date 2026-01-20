@@ -22,7 +22,7 @@ const monsters = {
     canibalBook: {
         name: "Canibal Book",
         maxHp: 20,
-        spawnChance: 0.5 
+        spawnChance: 0.5
     },
     possesedArmour: {
         name: "Possesed Armour",
@@ -30,7 +30,7 @@ const monsters = {
         spawnChance: 0.5
     },
     movingPainting: {
-        name : "Moving Painting",
+        name: "Moving Painting",
         maxHp: 30,
         spawnChance: 0.2
     },
@@ -45,13 +45,13 @@ const monsters = {
         spawnChance: 0.5
     },
     corruptBolder: {
-        name : "Corrupt Bolder",
+        name: "Corrupt Bolder",
         maxHp: 20,
         spawnChance: 0.5
     },
     evilBear: {
         name: "Evil Bear",
-        maxHp : 45,
+        maxHp: 45,
         spawnChance: 0.5,
     },
     quickmoss: {
@@ -73,7 +73,7 @@ function clearCurrentScene() {
     if (existingScene) {
         existingScene.remove();
     }
-    
+
     castleBtn.classList.remove("active");
     forestBtn.classList.remove("active");
     caveBtn.classList.remove("active");
@@ -96,6 +96,22 @@ function createScene(titleText, activeBtn) {
         activeBtn.classList.remove("active");
     };
 
+    const firstSpace = document.createElement("div");
+    firstSpace.classList.add("firstSpace");
+
+    // ------ Monsters call ------
+    let firstMonsterId = titleText.monsters[0];
+    let firstMonster = monsters[firstMonsterId];
+
+    let secondMonsterId = titleText.monsters[0];
+    let secondMonster = monsters[secondMonsterId];
+
+    let thirdMonsterId = titleText.monsters[0];
+    let thirdMonster = monsters[thirdMonsterId];
+
+    let firstMonsterTitle = document.createElement("h3");
+    firstMonsterTitle.innerText = firstMonster.name;
+
     // --------- Title ---------
     const title = document.createElement("h2");
     title.innerText = titleText.title;
@@ -104,6 +120,9 @@ function createScene(titleText, activeBtn) {
     areas.appendChild(container);
     container.appendChild(removeBtn);
     container.appendChild(title);
+    container.appendChild(firstSpace);
+
+    firstSpace.appendChild(firstMonsterTitle)
 
     activeBtn.classList.add("active");
 }
