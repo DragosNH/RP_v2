@@ -70,7 +70,7 @@ body {
     text-align: center;
 }
 
-.container div.health-container{
+.container div.health-container {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -78,7 +78,7 @@ body {
     padding: 0;
 }
 
-.top-buttons{
+.top-buttons {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -145,7 +145,7 @@ body {
     }
 }
 
-.optionsDropdown{
+.optionsDropdown {
     border: 3px solid var(--txt-color);
     font-family: "Roboto", sans-serif;
     background-color: var(--active-bk);
@@ -170,7 +170,7 @@ body {
 
 /* --------- Ultimate attacks --------- */
 
-.ultimateAttText{
+.ultimateAttText {
     cursor: pointer;
     user-select: none
 }
@@ -178,73 +178,110 @@ body {
 
 /* --------- Snackbar --------- */
 #snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: var(--bk-blue);
-  color: var(--txt-color);
-  border: 5px solid var(--txt-color);
-  text-align: center;
-  border-radius: 15px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: 17px;
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--bk-blue);
+    color: var(--txt-color);
+    border: 5px solid var(--txt-color);
+    text-align: center;
+    border-radius: 15px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
 }
 
 #snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 /* --------- Area Container --------- */
 
-.area-container{
+.area-container {
     border: 3px solid var(--txt-color);
     width: 90%;
     height: 90%;
     overflow-y: scroll;
 }
 
-.scene-title{
+.scene-title {
     text-align: center;
 }
 
-.sceneBtn{
+.sceneBtn {
     width: 150px;
 }
 
-.sceneBtnsContainer{
+.sceneBtnsContainer {
     display: flex;
     justify-content: space-around;
 }
 
-.roomContainer{
+.roomContainer {
     border: 1px solid var(--txt-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.rollBtn {
+    border: 3px solid var(--txt-color);
+    border-radius: 5px;
+    background-color: var(--bk-blue);
+    color: var(--txt-color);
+    font-family: "Roboto", sans-serif;
+    margin: 5px;
 }

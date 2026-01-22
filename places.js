@@ -7,16 +7,19 @@ const scenes = {
     castle: {
         title: "The Haunted Castle",
         monsters: ["canibalBook", "possesedArmour", "movingPainting"],
+        objects: ["book", "armour", "painting"],
         places: ["Library", "Armour room", "Study room"]
     },
     forest: {
         title: "The Forbidden Forest",
         monsters: ["demonWolf", "killerThree", "corruptBolder"],
+        objects: ["shadow", "three", "bolder"],
         places: ["River", "The passage", "The bridge"]
     },
     cave: {
         title: "The Forsaken Cave",
         monsters: ["evilBear", "quickmoss", "vampireBat"],
+        objects: ["wallPainting", "moss", "bat"],
         places: ["The passage", "The waterfall", "The dark corner"]
     }
 }
@@ -70,7 +73,49 @@ const monsters = {
         maxHp: 30,
         spawnChance: 0.5
     }
+}
 
+const objects = {
+    // --- The castle ---
+    book: {
+        name: "Book",
+        spawnChance: 0.5
+    },
+    armour: {
+        name: "Armour",
+        spawnChance: 0.5
+    },
+    painting: {
+        name: "Painting",
+        spawnChance: 0.2
+    },
+    // --- The forest ---
+    shadow: {
+        name: "Random Shadow",
+        spawnChance: 0.5
+    },
+    three: {
+        name: "Three",
+        spawnChance: 0.5
+    },
+    bolder: {
+        name: "Bolder",
+        spawnChance: 0.5
+    },
+    // --- The cave ---
+    wallPainting: {
+        name: "Wall painting",
+        spawnChance: 0.5,
+    },
+    moss: {
+        name: "Moss",
+        maxHp: 20,
+        spawnChance: 0.5
+    },
+    bat: {
+        name: "Bat",
+        spawnChance: 0.5
+    }
 }
 
 
@@ -131,7 +176,7 @@ function createScene(titleText, activeBtn) {
 
         let roomTitle = document.createElement("h4");
         roomTitle.innerText = titleText.places[index];
-        
+
         let rollsValues = document.createElement("div");
 
         let rollDice1to5 = document.createElement("button")
