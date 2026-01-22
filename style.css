@@ -245,6 +245,6 @@ body {
 .roomContainer{
     border: 1px solid var(--txt-color);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }

@@ -131,9 +131,32 @@ function createScene(titleText, activeBtn) {
         let roomTitle = document.createElement("h4");
         roomTitle.innerText = titleText.places[index];
         
+        let rollsValues = document.createElement("div");
+
+        let rollDice1to5 = document.createElement("button")
+        rollDice1to5.innerText = "1 - 5";
+        rollDice1to5.classList.add("rollBtn");
+
+        let rollDice6to10 = document.createElement("button");
+        rollDice6to10.innerText = "6 - 10";
+        rollDice6to10.classList.add("rollBtn");
+
+        let rollDice11to15 = document.createElement("button");
+        rollDice11to15.innerText = "11 - 15";
+        rollDice11to15.classList.add("rollBtn");
+
+        let rollDice16to20 = document.createElement("button");
+        rollDice16to20.innerText = "16 - 20";
+        rollDice16to20.classList.add("rollBtn");
 
         container.appendChild(roomContainer);
         roomContainer.appendChild(roomTitle);
+        roomContainer.appendChild(rollsValues);
+
+        rollsValues.appendChild(rollDice1to5);
+        rollsValues.appendChild(rollDice6to10);
+        rollsValues.appendChild(rollDice11to15);
+        rollsValues.appendChild(rollDice16to20);
     }
 
     // ------ Buttons one two and three event listeners ------
