@@ -241,3 +241,7 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
+.roomContainer{
+    border: 1px solid var(--txt-color);
+}

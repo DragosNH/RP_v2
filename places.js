@@ -124,6 +124,24 @@ function createScene(titleText, activeBtn) {
     sceneButton3.classList.add("btn")
     sceneButton3.classList.add("sceneBtn")
 
+    function summonScene(index) {
+        let roomContainer = document.createElement("div");
+        roomContainer.classList.add("roomContainer");
+
+        let roomTitle = document.createElement("h4");
+        // I would like to be able to get the respective place by pressing the coresponding button
+        roomTitle.innerText = titleText.places[index];
+
+        container.appendChild(roomContainer);
+        roomContainer.appendChild(roomTitle);
+    }
+
+    // ------ Buttons one two and three event listeners ------
+    sceneButton1.addEventListener("click", () => summonScene(0), { once: true });
+    sceneButton2.addEventListener("click", () => summonScene(1), { once: true });
+    sceneButton3.addEventListener("click", () => summonScene(2), { once: true });
+
+
     // ------ Monsters call ------
     let firstMonsterId = titleText.monsters[0];
     let firstMonster = monsters[firstMonsterId];
@@ -134,14 +152,14 @@ function createScene(titleText, activeBtn) {
     let thirdMonsterId = titleText.monsters[2];
     let thirdMonster = monsters[thirdMonsterId];
 
-    // let firstMonsterTitle = document.createElement("h3");
-    // firstMonsterTitle.innerText = firstMonster.name;
+    let firstMonsterTitle = document.createElement("h3");
+    firstMonsterTitle.innerText = firstMonster.name;
 
-    // let secondMonsterTitle = document.createElement("h3");
-    // secondMonsterTitle.innerText = secondMonster.name;
+    let secondMonsterTitle = document.createElement("h3");
+    secondMonsterTitle.innerText = secondMonster.name;
 
-    // let thirdMonsterTitle = document.createElement("h3");
-    // thirdMonsterTitle.innerText = thirdMonster.name;
+    let thirdMonsterTitle = document.createElement("h3");
+    thirdMonsterTitle.innerText = thirdMonster.name;
 
     // --------- Title ---------
     const title = document.createElement("h2");
@@ -152,15 +170,15 @@ function createScene(titleText, activeBtn) {
     container.appendChild(removeBtn);
     container.appendChild(title);
     container.appendChild(firstSpace);
-    
+
     container.appendChild(sceneBtnsContainer);
     sceneBtnsContainer.appendChild(sceneButton1);
     sceneBtnsContainer.appendChild(sceneButton2);
     sceneBtnsContainer.appendChild(sceneButton3);
 
-    firstSpace.appendChild(firstMonsterTitle)
-    firstSpace.appendChild(secondMonsterTitle)
-    firstSpace.appendChild(thirdMonsterTitle)
+    // firstSpace.appendChild(firstMonsterTitle)
+    // firstSpace.appendChild(secondMonsterTitle)
+    // firstSpace.appendChild(thirdMonsterTitle)
 
     activeBtn.classList.add("active");
 }
