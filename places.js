@@ -124,6 +124,7 @@ function createScene(titleText, activeBtn) {
     sceneButton3.classList.add("btn")
     sceneButton3.classList.add("sceneBtn")
 
+    // ------ Rooms container ------
     function summonScene(index) {
         let roomContainer = document.createElement("div");
         roomContainer.classList.add("roomContainer");
