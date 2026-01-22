@@ -129,8 +129,8 @@ function createScene(titleText, activeBtn) {
         roomContainer.classList.add("roomContainer");
 
         let roomTitle = document.createElement("h4");
-        // I would like to be able to get the respective place by pressing the coresponding button
         roomTitle.innerText = titleText.places[index];
+        
 
         container.appendChild(roomContainer);
         roomContainer.appendChild(roomTitle);
