@@ -6,23 +6,68 @@ const areas = document.querySelector(".areas");
 const scenes = {
     castle: {
         title: "The Haunted Castle",
-        monsters: ["canibalBook", "possesedArmour", "movingPainting"],
-        objects: ["book", "armour", "painting"],
-        places: ["Library", "Armour room", "Study room"]
+        places: [
+            {
+                name: "Library",
+                monsters: ["canibalBook"],
+                objects: ["book"]
+            },
+            {
+                name: "Armour room",
+                monsters: ["possesedArmour"],
+                objects: ["armour"]
+            },
+            {
+                name: "Study room",
+                monsters: ["movingPainting"],
+                objects: ["painting"]
+            }
+        ]
     },
+
     forest: {
         title: "The Forbidden Forest",
-        monsters: ["demonWolf", "killerThree", "corruptBolder"],
-        objects: ["shadow", "three", "bolder"],
-        places: ["River", "The passage", "The bridge"]
+        places: [
+            {
+                name: "River",
+                monsters: ["demonWolf"],
+                objects: ["shadow"]
+            },
+            {
+                name: "The passage",
+                monsters: ["killerThree"],
+                objects: ["three"]
+            },
+            {
+                name: "The bridge",
+                monsters: ["corruptBolder"],
+                objects: ["bolder"]
+            }
+        ]
     },
+
     cave: {
         title: "The Forsaken Cave",
-        monsters: ["evilBear", "quickmoss", "vampireBat"],
-        objects: ["wallPainting", "moss", "bat"],
-        places: ["The passage", "The waterfall", "The dark corner"]
+        places: [
+            {
+                name: "The passage",
+                monsters: ["evilBear"],
+                objects: ["wallPainting"]
+            },
+            {
+                name: "The waterfall",
+                monsters: ["quickmoss"],
+                objects: ["moss"]
+            },
+            {
+                name: "The dark corner",
+                monsters: ["vampireBat"],
+                objects: ["bat"]
+            }
+        ]
     }
-}
+};
+
 
 const monsters = {
     // --- The castle ---
@@ -120,26 +165,40 @@ const objects = {
 
 const encounterTable = {
     low: [
-        {type: "monsters", count: [3, 4], weight: 60},
-        {type: "monsters", count: [2, 3], weight: 25},
-        {type: "monsters", count: [1], weight: 10},
-        {type: "object", weight: 5},
+        { type: "monsters", count: [3, 4], weight: 60 },
+        { type: "monsters", count: [2, 3], weight: 25 },
+        { type: "monsters", count: [1], weight: 10 },
+        { type: "object", weight: 5 },
     ],
     midLow: [
-        {type: "monsters", count: [2, 3], weight: 50},
-        {type: "monsters", count: [1, 2], weight: 30},
-        {type: "object", weight: 20},
+        { type: "monsters", count: [2, 3], weight: 50 },
+        { type: "monsters", count: [1, 2], weight: 30 },
+        { type: "object", weight: 20 },
     ],
     midHigh: [
-        {type: "monsters", count: [1, 2], weight: 50},
-        {type: "monsters", count: [1], weight: 30},
-        {type: "object", weight: 20}
+        { type: "monsters", count: [1, 2], weight: 50 },
+        { type: "monsters", count: [1], weight: 30 },
+        { type: "object", weight: 20 }
     ],
     high: [
-        {type: "object", weight: 60},
-        {type: "monsters", count: [1], weight: 25},
-        {type: "monsters", count: [2], weight: 15},
+        { type: "object", weight: 60 },
+        { type: "monsters", count: [1], weight: 25 },
+        { type: "monsters", count: [2], weight: 15 },
     ]
+};
+
+function weightedPick(options) {
+    const total = options.reduce((sum, o) => sum + o.weight, 0);
+    let roll = Math.random() * total;
+
+    for (const option of options) {
+        roll -= option.weight;
+        if (roll <= 0) return option;
+    }
+}
+
+function randomFrom(array) {
+    return array[Math.floor(Math.random() * array.length)];
 }
 
 function clearCurrentScene() {
@@ -152,6 +211,31 @@ function clearCurrentScene() {
     forestBtn.classList.remove("active");
     caveBtn.classList.remove("active");
 }
+
+function resolveEncounter(rangeKey, roomData) {
+    const outcome = weightedPick(encounterTable[rangeKey]);
+
+    if (outcome.type === "object") {
+        const objectId = randomFrom(roomData.objects);
+        return {
+            type: "object",
+            name: objects[objectId].name
+        };
+    }
+
+    const count = randomFrom(outcome.count);
+    const monsterId = randomFrom(roomData.monsters);
+    const monster = monsters[monsterId];
+
+    return {
+        type: "monsters",
+        name: monster.name,
+        count: count,
+        maxHp: monster.maxHp
+    };
+}
+
+
 
 function createScene(titleText, activeBtn) {
     clearCurrentScene();
@@ -178,28 +262,30 @@ function createScene(titleText, activeBtn) {
     sceneBtnsContainer.classList.add("sceneBtnsContainer");
 
     const sceneButton1 = document.createElement("button");
-    sceneButton1.innerText = titleText.places[0];
+    sceneButton1.innerText = titleText.places[0].name;
     sceneButton1.classList.add("btn");
     sceneButton1.classList.add("sceneBtn");
 
     const sceneButton2 = document.createElement("button");
-    sceneButton2.innerText = titleText.places[1];
+    sceneButton2.innerText = titleText.places[1].name;
     sceneButton2.classList.add("btn");
     sceneButton2.classList.add("sceneBtn");
 
     const sceneButton3 = document.createElement("button");
-    sceneButton3.innerText = titleText.places[2];
+    sceneButton3.innerText = titleText.places[2].name;
     sceneButton3.classList.add("btn")
     sceneButton3.classList.add("sceneBtn")
 
     // ------ Rooms container ------
     function summonScene(index) {
+        const roomData = titleText.places[index];
+
         // --- Dice roll ---
         let roomContainer = document.createElement("div");
         roomContainer.classList.add("roomContainer");
 
         let roomTitle = document.createElement("h4");
-        roomTitle.innerText = titleText.places[index];
+        roomTitle.innerText = titleText.places[index].name;
 
         let rollsValues = document.createElement("div");
 
@@ -219,10 +305,29 @@ function createScene(titleText, activeBtn) {
         rollDice16to20.innerText = "16 - 20";
         rollDice16to20.classList.add("rollBtn");
 
-
         const monsterOrObjectContainer = document.createElement("div");
         monsterOrObjectContainer.classList.add("monsterOrObjectContainer");
 
+        function handleRoll(rangeKey) {
+            monsterOrObjectContainer.innerHTML = "";
+
+            const encounter = resolveEncounter(rangeKey, roomData);
+
+            const p = document.createElement("p");
+
+            if (encounter.type === "object") {
+                p.innerText = `You found: ${encounter.name}`;
+            } else {
+                p.innerText = `${encounter.name} x ${encounter.count} (HP: ${encounter.maxHp})`;
+            }
+
+            monsterOrObjectContainer.appendChild(p);
+        }
+
+        rollDice1to5.addEventListener("click", () => handleRoll("low"));
+        rollDice6to10.addEventListener("click", () => handleRoll("midLow"));
+        rollDice11to15.addEventListener("click", () => handleRoll("midHigh"));
+        rollDice16to20.addEventListener("click", () => handleRoll("high"));
 
         container.appendChild(roomContainer);
         roomContainer.appendChild(roomTitle);
@@ -235,30 +340,13 @@ function createScene(titleText, activeBtn) {
         rollsValues.appendChild(rollDice16to20);
     }
 
+
+
     // ------ Buttons one two and three event listeners ------
     sceneButton1.addEventListener("click", () => summonScene(0), { once: true });
     sceneButton2.addEventListener("click", () => summonScene(1), { once: true });
     sceneButton3.addEventListener("click", () => summonScene(2), { once: true });
 
-
-    // ------ Monsters call ------
-    let firstMonsterId = titleText.monsters[0];
-    let firstMonster = monsters[firstMonsterId];
-
-    let secondMonsterId = titleText.monsters[1];
-    let secondMonster = monsters[secondMonsterId];
-
-    let thirdMonsterId = titleText.monsters[2];
-    let thirdMonster = monsters[thirdMonsterId];
-
-    let firstMonsterTitle = document.createElement("h3");
-    firstMonsterTitle.innerText = firstMonster.name;
-
-    let secondMonsterTitle = document.createElement("h3");
-    secondMonsterTitle.innerText = secondMonster.name;
-
-    let thirdMonsterTitle = document.createElement("h3");
-    thirdMonsterTitle.innerText = thirdMonster.name;
 
     // --------- Title ---------
     const title = document.createElement("h2");
