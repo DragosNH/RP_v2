@@ -87,7 +87,7 @@ const objects = {
     },
     painting: {
         name: "Painting",
-        spawnChance: 0.2
+        spawnChance: 0.8
     },
     // --- The forest ---
     shadow: {
@@ -118,6 +118,29 @@ const objects = {
     }
 }
 
+const encounterTable = {
+    low: [
+        {type: "monsters", count: [3, 4], weight: 60},
+        {type: "monsters", count: [2, 3], weight: 25},
+        {type: "monsters", count: [1], weight: 10},
+        {type: "object", weight: 5},
+    ],
+    midLow: [
+        {type: "monsters", count: [2, 3], weight: 50},
+        {type: "monsters", count: [1, 2], weight: 30},
+        {type: "object", weight: 20},
+    ],
+    midHigh: [
+        {type: "monsters", count: [1, 2], weight: 50},
+        {type: "monsters", count: [1], weight: 30},
+        {type: "object", weight: 20}
+    ],
+    high: [
+        {type: "object", weight: 60},
+        {type: "monsters", count: [1], weight: 25},
+        {type: "monsters", count: [2], weight: 15},
+    ]
+}
 
 function clearCurrentScene() {
     const existingScene = document.querySelector(".area-container");
@@ -171,6 +194,7 @@ function createScene(titleText, activeBtn) {
 
     // ------ Rooms container ------
     function summonScene(index) {
+        // --- Dice roll ---
         let roomContainer = document.createElement("div");
         roomContainer.classList.add("roomContainer");
 
@@ -195,9 +219,15 @@ function createScene(titleText, activeBtn) {
         rollDice16to20.innerText = "16 - 20";
         rollDice16to20.classList.add("rollBtn");
 
+
+        const monsterOrObjectContainer = document.createElement("div");
+        monsterOrObjectContainer.classList.add("monsterOrObjectContainer");
+
+
         container.appendChild(roomContainer);
         roomContainer.appendChild(roomTitle);
         roomContainer.appendChild(rollsValues);
+        roomContainer.appendChild(monsterOrObjectContainer);
 
         rollsValues.appendChild(rollDice1to5);
         rollsValues.appendChild(rollDice6to10);

@@ -253,7 +253,7 @@ body {
 .area-container {
     border: 3px solid var(--txt-color);
     width: 90%;
-    height: 90%;
+    height: 80%;
     overflow-y: scroll;
 }
 
